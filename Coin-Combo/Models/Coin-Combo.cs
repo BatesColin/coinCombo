@@ -4,28 +4,41 @@ namespace CoinCombo
 {
   public class CoinCombo
   {
-    int remainder = 0;
-    int quarters = 0;
-    int dimes = 0;
-    int nickels = 0;
-    int pennies = 0;
-    public CoinCombo()
+    private int Remainder = 0;
+    private int Quarters = 0;
+    private int Dimes = 0;
+    private int Nickels = 0;
+    private int Pennies = 0;
+
+    public CoinCombo(int number)
     {
 
     }
-    public int Coins(int number)
+    public int GetQuarters()
     {
-
-      newNumber = New number()
-      {
-       quarters += number/25
-       remainder = %25
-       dimes+= number/10
-       remainder = %10
-       nickles+= number/5
-       remainder = %5
-       pennies += number/1
-      }
+      return Quarters;
+    }
+    public int GetDimes()
+    {
+      return Dimes;
+    }
+    public int GetNickels()
+    {
+      return Nickels;
+    }
+    public int GetPennies()
+    {
+      return Pennies;
+    }
+    public void Coins(int number)
+    {
+       Quarters += number/25;
+       Remainder = number % 25;
+       Dimes += Remainder/10;
+       Remainder = Remainder % 10;
+       Nickels += Remainder/5;
+       Remainder = Remainder % 5;
+       Pennies += Remainder/1;
     }
   }
   public class Program
@@ -33,9 +46,9 @@ namespace CoinCombo
     public static void Main()
     {
       Console.WriteLine("How much change do you have?");
-      int number = Console.ReadLine();
+      int number = int.Parse(Console.ReadLine());
       CoinCombo myCoins = new CoinCombo(number);
-      string result = quarters + " " + "Quarters" + dimes + " " + "Dimes" + nickels + " " + "Nickels" + pennies + " " + "Pennies";
+      string result = myCoins.GetQuarters() + " " + "Quarters" + myCoins.GetDimes() + " " + "Dimes" + myCoins.GetNickels() + " " + "Nickels" + myCoins.GetPennies() + " " + "Pennies";
       Console.WriteLine(result);
     }
   }
