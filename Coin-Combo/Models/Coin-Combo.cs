@@ -10,7 +10,7 @@ namespace CoinCombo
     private int Nickels = 0;
     private int Pennies = 0;
 
-    public CoinCombo(int number)
+    public CoinCombo()
     {
 
     }
@@ -47,8 +47,9 @@ namespace CoinCombo
     {
       Console.WriteLine("How much change do you have?");
       int number = int.Parse(Console.ReadLine());
-      CoinCombo myCoins = new CoinCombo(number);
-      string result = myCoins.GetQuarters() + " " + "Quarters" + myCoins.GetDimes() + " " + "Dimes" + myCoins.GetNickels() + " " + "Nickels" + myCoins.GetPennies() + " " + "Pennies";
+      CoinCombo myCoins = new CoinCombo();
+      myCoins.Coins(number);
+      string result = myCoins.GetQuarters() + " " + "Quarters" + " " + myCoins.GetDimes() + " " + "Dimes" + " " + myCoins.GetNickels() + " " + "Nickels" + " " + myCoins.GetPennies() + " " + "Pennies";
       Console.WriteLine(result);
     }
   }
